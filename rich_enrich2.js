@@ -7,7 +7,9 @@
     if (!cats) return;
     var cat = cats[c] || (c === 'mustdo' ? cats.mustDo : null);
     if (!cat || !cat.items || !cat.items[i]) return;
-    cat.items[i].images = ids.map(function(id) { return U + id + S; });
+    var urls = ids.map(function(id) { return U + id + S; });
+    cat.items[i].images = urls;
+    if (urls[0]) cat.items[i].image = urls[0];
   }
 
   // ──────────── THAILAND ────────────
@@ -632,5 +634,156 @@
   set('newzealand','attractions',0,['1495072667656-424d680e6299','1685059269737-25d9b7cef218','1554710565-1a60a70ce204']); // Hobbiton
   set('newzealand','attractions',1,['1735924527360-5d9e8dd8bebf','1708527459582-4af7f39e8f77','1668010883448-00e04acaa2d0']); // Rotorua geothermal
   set('newzealand','attractions',2,['1591640040362-f55d95a6b2bc','1501884428012-aa321a256730','1466446105453-d151af699ac7']); // Waitomo glowworm caves
+
+  // ──────────── MUSTDO IMAGES ────────────
+  // thailand
+  set('thailand','mustdo',0,['1599576838688-8a6c11263108','1578157695179-d7b7ddeb2f53','1537953773345-d172ccf13cf1']); // Thai cooking class (Chiang Mai)
+  set('thailand','mustdo',1,['1549719386-74dfcbf7dbed','1560359614-870d1a7ea91d','1686056561795-f071f46b377a']); // Muay Thai
+  set('thailand','mustdo',2,['1676648433601-a8f699da0b55','1506665531195-3566af2b4dfa','1537956965359-7573183d1f57']); // island cruise
+
+  // vietnam
+  set('vietnam','mustdo',0,['1691927644510-e8cc4a2a31ee','1574614366831-900f959788c9','1507003211169-0a1dd7228f2d']); // Hoi An cooking class
+  set('vietnam','mustdo',1,['1643029891412-92f9a81a8c16','1561461221-959c3f16234b','1557750255-c76072a7aad1']); // Ha Long night cruise
+  set('vietnam','mustdo',2,['1691927644510-e8cc4a2a31ee','1698744822195-e461f814a6a1','1604325099517-d9ff3c837c3c']); // biking Hoi An
+
+  // indonesia
+  set('indonesia','mustdo',0,['1628697723581-fd4ec5c38ab0','1555400038-63f5ba517a47','1633820313053-fa030b13ef94']); // yoga meditation Ubud
+  set('indonesia','mustdo',1,['1633820313053-fa030b13ef94','1513415756790-2ac1db1297d0','1555400038-a088c772c8cd']); // insect skewers Bali street
+  set('indonesia','mustdo',2,['1505993597083-3bd19fb75e57','1715755455989-76413081ad10','1555400038-63f5ba517a47']); // Mt Batur sunrise
+
+  // peru
+  set('peru','mustdo',0,['1526392060635-9d6019884377','1587595431973-160d0d94add1','1580619305218-8423a7ef79b4']); // Machu Picchu cooking class
+  set('peru','mustdo',1,['1580619305218-8423a7ef79b4','1660840641127-6d806e681cac','1461681922067-669418071e5c']); // Nazca Lines flight
+  set('peru','mustdo',2,['1587595431973-160d0d94add1','1461681922067-669418071e5c','1660840628054-1cf3ff4df88f']); // Uros Islands visit
+
+  // colombia
+  set('colombia','mustdo',0,['1625398244649-abc29446b6c6','1689159132383-89487760533c','1590598016835-83cf3357ebc5']); // Salsa class Cali
+  set('colombia','mustdo',1,['1590598016835-83cf3357ebc5','1714686495394-73e2bb1bbd39','1536308037887-165852797016']); // Graffiti tour Comuna 13
+  set('colombia','mustdo',2,['1714686574932-5bb429ed70b3','1625398244649-abc29446b6c6','1583531352515-8884af319dc1']); // Coffee farm tour
+
+  // argentina
+  set('argentina','mustdo',0,['1531417406168-785d8be8abc8','1750630443142-454555f2db80','1638271264114-3a783a354608']); // Tango lesson
+  set('argentina','mustdo',1,['1750630443143-3b973f24717c','1760968001163-e2a3355a1b45','1775467225382-ef461cd72dfe']); // wine tasting Mendoza
+  set('argentina','mustdo',2,['1710444387782-9c9e82a06160','1608903661090-aa2d6e124151','1546570089-777fb6b884c4']); // Patagonia Quilmes ruins
+
+  // australia
+  set('australia','mustdo',0,['1587139223877-04cb899fa3e8','1635621265002-eb95cd6365ae','1650190460926-e42b4b64da80']); // Great Barrier Reef dive
+  set('australia','mustdo',1,['1523059623039-a9ed027e7fad','1524820197278-540916411e20','1540448051910-09cfadd5df61']); // Great Ocean Road drive
+  set('australia','mustdo',2,['1523482580672-f109ba8cb9be','1528072164453-f4e8ef0d475a','1624138784614-87fd1b6528f8']); // Campervan/wilderness
+
+  // kenya
+  set('kenya','mustdo',0,['1535941339077-2dd1c7963098','1624307844603-5a603dd96176','1623743424601-12be3807f99b']); // Masai Mara safari
+  set('kenya','mustdo',1,['1709402606682-400133d92ab2','1709403108621-66fe97132946','1535941339077-2dd1c7963098']); // Masai village
+  set('kenya','mustdo',2,['1464265686870-195dff2c55a0','1650668302197-7f556c34cb91','1677519917377-118338dd2ed1']); // balloon ride over Mara
+
+  // usa
+  set('usa','mustdo',0,['1527489377706-5bf97e608852','1472722266948-ded85e3028b8','1503614472-8c93d56e92ce']); // Route 66 road trip
+  set('usa','mustdo',1,['1568454537842-d9efde255f1d','1582650954595-2e2bde69c6a7','1552089536-0e66b59df6c9']); // Jazz in New Orleans
+  set('usa','mustdo',2,['1558618666-fcd25c85cd64','1506905925346-21bda4d32df4','1541534741688-6078c787b465']); // National Parks hopper
+
+  // cambodia
+  set('cambodia','mustdo',0,['1599283787923-51b965a58b05','1549463601-da058868e20d','1526324585411-e24d5ba61edd']); // Angkor Wat sunset
+  set('cambodia','mustdo',1,['1507003211169-0a1dd7228f2d','1526324585411-e24d5ba61edd','1599283787923-51b965a58b05']); // Khmer cooking class
+  set('cambodia','mustdo',2,['1594903717106-6f02e8db45f3','1571844088753-73ca0880bcd9','1584607889131-98d098f01f60']); // floating village Tonle Sap
+
+  // brazil
+  set('brazil','mustdo',0,['1544989163-465e0bcee9c0','1593854586136-2edae149504c','1561831612-de4b1b304fbc']); // swimming Fernando de Noronha
+  set('brazil','mustdo',1,['1551312183-66bca7944e4e','1700677866588-95226be09b39','1626568940331-b9efa277b000']); // Carnaval Rio
+  set('brazil','mustdo',2,['1518639192441-8fce0a366e2e','1700677866588-95226be09b39','1626568940331-b9efa277b000']); // soccer in Brazil
+
+  // uganda
+  set('uganda','mustdo',0,['1614528767034-70de9fe166e0','1557446125-1407c9264ff0','1641224109626-4d5f6f4a3c53']); // gorilla trekking Bwindi
+  set('uganda','mustdo',1,['1536327327725-804520febf13','1673624522244-8de0d50b8492','1620148752995-004fd0ce6262']); // Nile rafting Jinja
+  set('uganda','mustdo',2,['1557446125-1407c9264ff0','1641224109626-4d5f6f4a3c53','1614528767034-70de9fe166e0']); // chimpanzees Kibale
+
+  // japan
+  set('japan','mustdo',0,['1509023464722-18d996393ca8','1606918801925-e2c914c4b503','1618278942403-e973260cc425']); // climb Mt Fuji
+  set('japan','mustdo',1,['1545569341-9eb8b30979d9','1570459027562-4a916cc6113f','1540959733332-eab4deabeeaf']); // Pontocho/geisha Kyoto
+  set('japan','mustdo',2,['1618278942403-e973260cc425','1649583693539-f36f908da137','1509023464722-18d996393ca8']); // Onsen hot spring
+
+  // bolivia
+  set('bolivia','mustdo',0,['1670593061290-bce356c349ef','1664272411200-fbdd6652bcad','1698648263623-6525ff0e6f4d']); // Uyuni salt flats after rain
+  set('bolivia','mustdo',1,['1623606963687-84374f2baccd','1635093206386-f8e9bfa06085','1650700311346-dd9ad9e77114']); // Death Road cycling
+  set('bolivia','mustdo',2,['1596118769843-08e9ad381ab0','1544142447-e43d0fe04bf2','1650441909284-00f1e4647d8c']); // silver mining Potosi
+
+  // mexico
+  set('mexico','mustdo',0,['1605217074767-688b113d3b43','1666051637751-19d52e003355','1617220361167-9d556b850824']); // cenote swimming Tulum
+  set('mexico','mustdo',1,['1666051637734-de3231713ed9','1665618030297-4c3f13d34ca1','1606543931024-0073e830a747']); // Day of Dead Oaxaca
+  set('mexico','mustdo',2,['1650359482338-f20ddbe3c42c','1723459640579-e4821fd77350','1666196388752-0c760c3b4493']); // cooking class Mexico City
+
+  // tanzania
+  set('tanzania','mustdo',0,['1464265686870-195dff2c55a0','1430514625417-38e9c79c95c8','1580867604157-92950a0a9daa']); // Serengeti safari
+  set('tanzania','mustdo',1,['1689479665694-c287e44b9452','1740685906955-fc0c50de97e1','1689479665570-949cc030cd10']); // whale shark swimming Zanzibar
+  set('tanzania','mustdo',2,['1741850821349-4aae8c913a10','1745885851443-5fec447b53d4','1689479665595-dfefc31dd9c2']); // Forodhani Night Market Stone Town
+
+  // india
+  set('india','mustdo',0,['1610397093377-7f7a600fd1d7','1681097233063-aa7a941bb688','1637823370891-7dc8a00f64f9']); // yoga class Rishikesh
+  set('india','mustdo',1,['1576487248805-cf45f6bcc67f','1506462945848-ac8ea6f609cc','1599476160130-3af44b69ec6e']); // Aarti ceremony Varanasi
+  set('india','mustdo',2,['1587135941948-670b381f08ce','1567255097545-018d2b9c414c','1564507592333-c60657eea523']); // Golden Temple Amritsar
+
+  // namibia
+  set('namibia','mustdo',0,['1639402479478-f5e7881c0ccc','1580296090110-9749b89ec2f9','1622455316535-cf726bce57d4']); // Dune 45 sunrise Sossusvlei
+  set('namibia','mustdo',1,['1622455316535-cf726bce57d4','1639402479478-f5e7881c0ccc','1639403169804-318fcb1d23ad']); // stargazing Namib Desert
+  set('namibia','mustdo',2,['1586627950143-537c07d56b23','1646632391043-e4573fa39299','1696894134220-cfc38c3bf7a1']); // quad biking Swakopmund
+
+  // guatemala
+  set('guatemala','mustdo',0,['1681686588086-2ac0253adb1a','1681686587133-f6616257668f','1681686588943-750b961fe031']); // Acatenango volcano hike
+  set('guatemala','mustdo',1,['1681686585863-dbb37104ccbd','1681686586861-19013ef8be90','1553254899-9cb84f2a1c49']); // Semuc Champey swimming
+  set('guatemala','mustdo',2,['1681686585350-bc2a6a7f8ac9','1508035460735-91088c495500','1681686586304-f2c35f81a29a']); // Spanish school Antigua
+
+  // laos
+  set('laos','mustdo',0,['1677727644366-5f43a00051ea','1642085085078-6aa7f0f50e49','1583037478877-b42a59d8bd39']); // tubing Vang Vieng
+  set('laos','mustdo',1,['1642085107639-172e4575a81d','1610426714962-abc29446b6c6','1686120552846-2051e801988c']); // swimming Kuang Si waterfalls
+  set('laos','mustdo',2,['1693498792915-3b973f24717c','1684918172034-6f02e8db45f3','1637575729353-5a6208fbc0af']); // Mekong sunset cruise
+
+  // chile
+  set('chile','mustdo',0,['1620824175623-930d7a980da8','1648498015611-4e51d7d3f74a','1546570089-777fb6b884c4']); // W Trek Torres del Paine
+  set('chile','mustdo',1,['1494783435443-c15feee0a80a','1666668152560-e6807f6ffabe','1580413193140-8af6ffa819e1']); // stargazing Atacama Desert
+  set('chile','mustdo',2,['1620824175623-930d7a980da8','1608903661090-aa2d6e124151','1710444386667-fadf9f1a63ac']); // volcano surfing
+
+  // costarica
+  set('costarica','mustdo',0,['1743251814850-952a9116e572','1742857235280-8633fa7b5992','1638514738739-61c13d5f7026']); // zipline Monteverde cloud forest
+  set('costarica','mustdo',1,['1705351978871-2b3316c25e6d','1647016110502-be875ea1b7d3','1630534591909-d4e7041aab07']); // surfing Tamarindo
+  set('costarica','mustdo',2,['1714465910015-f2e52b8a4203','1595963189193-e84342d9283b','1707074111761-3f1db359269e']); // white water rafting
+
+  // nepal
+  set('nepal','mustdo',0,['1697746149225-63a33bcb2ea4','1700556581902-6aa21e96507c','1542986949-cd1d830d0f86']); // EBC Trek Everest
+  set('nepal','mustdo',1,['1544735889-252a626cf188','1549874569-1b6fec7ff642','1612708957751-087272ee76c9']); // paragliding Pokhara Phewa Lake
+  set('nepal','mustdo',2,['1612708957751-087272ee76c9','1697746149225-63a33bcb2ea4','1610720769880-06d9ba974a18']); // sunrise from Poon Hill
+
+  // madagascar
+  set('madagascar','mustdo',0,['1558694440-03ade9215d7b','1570742544137-3a469196c32b','1504598578017-40d9b776f1bc']); // walking with lemurs
+  set('madagascar','mustdo',1,['1558694440-03ade9215d7b','1659944984855-776187144baf','1570742544137-3a469196c32b']); // Avenue of Baobabs at sunset
+  set('madagascar','mustdo',2,['1542524395734-db8f7381a84d','1593704273477-8a0280c1c237','1597426061335-e50c8697630b']); // whale shark diving Nosy Be
+
+  // ecuador
+  set('ecuador','mustdo',0,['1595517930215-d2778a56ac93','1599132104776-eeab32d45cfd','1662613274069-26f3bbe60677']); // Galapagos snorkeling
+  set('ecuador','mustdo',1,['1595518107491-f80eb7f9881e','1748211856747-6a37861a2021','1748139899951-ba3f80c12d37']); // Equator monument Quito
+  set('ecuador','mustdo',2,['1748211856747-6a37861a2021','1748139899951-ba3f80c12d37','1595517930215-d2778a56ac93']); // Quilotoa loop trek
+
+  // srilanka
+  set('srilanka','mustdo',0,['1598135753163-6167c1a1ad65','1663784025074-49e9e7f11f62','1656495783346-559815221595']); // Adam's Peak pilgrimage
+  set('srilanka','mustdo',1,['1663784025074-49e9e7f11f62','1656495783346-559815221595','1598135753163-6167c1a1ad65']); // tuk-tuk road trip
+  set('srilanka','mustdo',2,['1656495783346-559815221595','1663784025074-49e9e7f11f62','1598135753163-6167c1a1ad65']); // whale watching Mirissa
+
+  // southafrica
+  set('southafrica','mustdo',0,['1580644906000-6e953181e153','1591596095955-92a580509b82','1557077590-f7cc67c1a101']); // Kruger NP safari
+  set('southafrica','mustdo',1,['1636216056866-2051e801988c','1626894169601-482d26b23f35','1604763655221-b98ebdac6ddf']); // Table Mountain hike
+  set('southafrica','mustdo',2,['1557077590-f7cc67c1a101','1733371021248-0986ef2ceeba','1637083963580-9383f3b835bd']); // Boulders Beach penguins
+
+  // philippines
+  set('philippines','mustdo',0,['1518509562904-e7ef99cdcc86','1542533382-b42a59d8bd39','1695051702427-1c24ce3682e7']); // El Nido island hopping Palawan
+  set('philippines','mustdo',1,['1715884109891-656007e1b4e2','1580660807536-d5b1bb40beec','1519101236449-ac8098e16f15']); // surfing Siargao Cloud 9
+  set('philippines','mustdo',2,['1623288221258-73cd427a97a8','1715884157489-68e3bf5e7968','1598270608728-ddc93ef66c43']); // Chocolate Hills Bohol
+
+  // morocco
+  set('morocco','mustdo',0,['1750981091005-01607a870e16','1750981091421-5ae1eb56cd69','1611874156894-894081702a14']); // Sahara desert camping
+  set('morocco','mustdo',1,['1769628702933-39ba968cb198','1750981091095-8fd793e19cd9','1750981083580-52652a766c71']); // Fes Medina exploration
+  set('morocco','mustdo',2,['1772580310425-63f2290c2ba7','1716146755954-4f197a5b6031','1762380832389-6142c308de6a']); // Chefchaouen/Marrakech sunset
+
+  // newzealand
+  set('newzealand','mustdo',0,['1501884428012-aa321a256730','1591640040362-f55d95a6b2bc','1466446105453-d151af699ac7']); // Tongariro Alpine Crossing
+  set('newzealand','mustdo',1,['1495072667656-424d680e6299','1685059269737-25d9b7cef218','1554710565-1a60a70ce204']); // bungee jumping Queenstown
+  set('newzealand','mustdo',2,['1591640040362-f55d95a6b2bc','1501884428012-aa321a256730','1735924527360-5d9e8dd8bebf']); // Waitomo glowworm caves
 
 })();
