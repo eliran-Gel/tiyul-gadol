@@ -1,0 +1,60 @@
+# Destination Management System (DMS) - Core Architecture
+
+You are operating as a strict CRUD Data Controller for a travel planning project. Every destination must exist as a single Markdown file inside the `destinations/` directory (e.g., `destinations/thailand.md`).
+
+---
+
+## 1. DATA SCHEMA (The "Class" Properties)
+Every destination file MUST strictly adhere to this structural layout:
+
+# [Country Name]
+
+## Dry Data
+- **Capital:** [Text]
+- **Currency:** [Text]
+- **Language:** [Text]
+- **Best Season:** [Text]
+
+## Gallery & Images
+- **Images:** [Markdown Image Links or Placeholders]
+
+## Map & Geography
+- [Links and Description]
+
+## Itineraries & Routes
+- [Bullet points of paths and days]
+
+## Landscapes & Nature
+- [Key natural attractions]
+
+## Additional Notes
+- [General info]
+
+---
+
+## 2. CUSTOM SKILLS & WORKFLOWS (The "Class" Methods)
+Intercept the user's intent and execute the following macro behaviors with precision. Do not rewrite unaffected data.
+
+### Skill 1: Add Destination
+* Trigger: User asks to "Add", "Create", or "Initialize" a destination.
+* Action: Create `destinations/[country_name].md` with the empty SCHEMA above.
+
+### Skill 2: Update Specific Target Data
+* Trigger: User specifies a country, a section, and new data.
+* Action: Modify or append the value in that specific section. Leave all other sections 100% untouched.
+
+### Skill 3: Update Images for Specific Destination
+* Trigger: User says "Update images for [Country]".
+* Action: Navigate directly to `## Gallery & Images` and insert the new image URLs.
+
+### Skill 4: Bulk/Global Update
+* Trigger: User wants to change a formatting rule or key across ALL destinations.
+* Action: Iterate through every file in `destinations/` and inject the new field safely.
+
+### Skill 5: Global Validation Check
+* Trigger: User says "Run validation" or "בדיקה גורפת".
+* Action: Scan all files in `destinations/` and report if any file is missing headings.
+
+### Skill 6: Delete Destination
+* Trigger: User says "Delete [Country]".
+* Action: Permanently delete the file. Always ask for confirmation first.
