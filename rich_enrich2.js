@@ -9,6 +9,7 @@
     if (!cat || !cat.items || !cat.items[i]) return;
     var urls = ids.map(function(id) { return U + id + S; });
     cat.items[i].images = urls;
+    if (urls[0]) cat.items[i].image = urls[0];
   }
 
   // ──────────── THAILAND ────────────
@@ -20,18 +21,18 @@
   // hiking
   set('thailand','hiking',0,['1699156334097-5a329e05b4c4','1713361060470-50510cc39729','1721038469648-d95ebc57aa36']); // Doi Inthanon
   set('thailand','hiking',1,['1706574458327-73fc8c5fb1a1','1748966006818-de095fe1fbd7','1748966006345-ea3c0ca397e9']); // Khao Yai
-  set('thailand','hiking',2,['1702148056616-45b0d75c3cc7','1539025715334-dfd6ea122914','1741336313969-1457e7a41d8e']); // Khao Luang
+  set('thailand','hiking',2,['1741336313969-1457e7a41d8e','1539025715334-dfd6ea122914','1702148056616-45b0d75c3cc7']); // Khao Luang
   // parties
   set('thailand','parties',0,['1560359614-870d1a7ea91d','1746870705408-b771dc74062e','1633419016402-5ae1b67bf219']); // Full Moon Party
   set('thailand','parties',1,['1508009603885-50cf7c579365','1507358522600-9f71e620c44e','1584293938526-76d5ceac45f1']); // Khao San Road
   set('thailand','parties',2,['1625492206717-61c584a8b11e','1644902617098-45abe72a7445','1625276413000-12c38e7b7d0a']); // Pattaya
   // beaches
-  set('thailand','beaches',0,['1702148056616-45b0d75c3cc7','1534080775144-c706f4e9e30a','1539025715334-dfd6ea122914']); // Koh Lanta
+  set('thailand','beaches',0,['1534080775144-c706f4e9e30a','1702148056616-45b0d75c3cc7','1539025715334-dfd6ea122914']); // Koh Lanta
   set('thailand','beaches',1,['1676648433601-a8f699da0b55','1655921779907-6985a3c4a795','1534008897995-27a23e859048']); // Maya Bay
   set('thailand','beaches',2,['1537956965359-7573183d1f57','1575834678162-9fd77151f40b','1537956900246-de817d5af91d']); // Koh Tao
   // attractions
   set('thailand','attractions',0,['1586098311577-520120ba3df3','1678915554115-a5e2de853191','1690299490301-2eb3865bee58']); // Grand Palace
-  set('thailand','attractions',1,['1508009603885-50cf7c579365','1703508202823-9b3648ca4f18','1558655822-54f2380fadbb']);   // Chatuchak
+  set('thailand','attractions',1,['1703508202823-9b3648ca4f18','1508009603885-50cf7c579365','1558655822-54f2380fadbb']);   // Chatuchak
   set('thailand','attractions',2,['1680779487034-ca13948b2891','1519108494795-0028a391bf4c','1474511320723-9a56873867b5']); // Elephant Nature Park
 
   // ──────────── VIETNAM ────────────
@@ -39,21 +40,21 @@
   set('vietnam','scenery',0,['1643029891412-92f9a81a8c16','1561461221-959c3f16234b','1573270689103-d7a4e42b609a']); // Ha Long Bay
   set('vietnam','scenery',1,['1691927644510-e8cc4a2a31ee','1574614366831-900f959788c9','1698744822195-e461f814a6a1']); // Hoi An
   set('vietnam','scenery',2,['1609412058473-c199497c3c5d','1604325099517-d9ff3c837c3c','1516484681091-7d83961805f4']); // Sapa
-  set('vietnam','scenery',3,['1557750255-c76072a7aad1','1431975071466-2c609dac5956','1504805526346-8d03d1ca73de']); // Mekong
+  set('vietnam','scenery',3,['1504805526346-8d03d1ca73de','1431975071466-2c609dac5956','1557750255-c76072a7aad1']); // Mekong
   // hiking
   set('vietnam','hiking',0,['1609412058473-c199497c3c5d','1665905905591-fb66b0496481','1666160416071-f760a7af9ea6']); // Sapa trekking
-  set('vietnam','hiking',1,['1557750255-c76072a7aad1','1573270689103-d7a4e42b609a','1643029891412-92f9a81a8c16']);   // Phong Nha
+  set('vietnam','hiking',1,['1590119329604-0c0caab2a4e6','1573270689103-d7a4e42b609a','1643029891412-92f9a81a8c16']);   // Phong Nha
   set('vietnam','hiking',2,['1516484681091-7d83961805f4','1604325099517-d9ff3c837c3c','1665905905591-fb66b0496481']); // Bach Ma
   // parties
   set('vietnam','parties',0,['1691927644510-e8cc4a2a31ee','1574614366831-900f959788c9','1590119329604-0c0caab2a4e6']); // Hoi An lanterns
   set('vietnam','parties',1,['1643029891412-92f9a81a8c16','1431975071466-2c609dac5956','1557750255-c76072a7aad1']);    // Hanoi
   set('vietnam','parties',2,['1573270689103-d7a4e42b609a','1609412058473-c199497c3c5d','1706433164183-f88522c49600']); // Hanoi Old Quarter
   // beaches
-  set('vietnam','beaches',0,['1691927644510-e8cc4a2a31ee','1574614366831-900f959788c9','1643029891412-92f9a81a8c16']); // Phu Quoc
+  set('vietnam','beaches',0,['1732243395944-cb3ff9311091','1574614366831-900f959788c9','1643029891412-92f9a81a8c16']); // Phu Quoc
   set('vietnam','beaches',1,['1665905905591-fb66b0496481','1666160416071-f760a7af9ea6','1516484681091-7d83961805f4']); // Mui Ne
   set('vietnam','beaches',2,['1698744822195-e461f814a6a1','1590119329604-0c0caab2a4e6','1706433164183-f88522c49600']); // Nha Trang
   // attractions
-  set('vietnam','attractions',0,['1557750255-c76072a7aad1','1431975071466-2c609dac5956','1504805526346-8d03d1ca73de']); // Cu Chi
+  set('vietnam','attractions',0,['1431975071466-2c609dac5956','1557750255-c76072a7aad1','1504805526346-8d03d1ca73de']); // Cu Chi
   set('vietnam','attractions',1,['1691927644510-e8cc4a2a31ee','1574614366831-900f959788c9','1698744822195-e461f814a6a1']); // Hoi An old town
   set('vietnam','attractions',2,['1643029891412-92f9a81a8c16','1573270689103-d7a4e42b609a','1561461221-959c3f16234b']); // Ha Long cruise
 
@@ -62,17 +63,17 @@
   set('indonesia','scenery',0,['1555400038-63f5ba517a47','1715755455989-76413081ad10','1628697723581-fd4ec5c38ab0']); // Bali Tegalalang
   set('indonesia','scenery',1,['1505993597083-3bd19fb75e57','1597553716923-45474a48fbe4','1534227749049-06c3ed80963c']); // Mount Bromo
   set('indonesia','scenery',2,['1518043610038-064362b44076','1681476193060-ebf1683bb56b','1633820313053-fa030b13ef94']); // Lombok
-  set('indonesia','scenery',3,['1555400038-63f5ba517a47','1681476193060-ebf1683bb56b','1628697723581-fd4ec5c38ab0']); // Komodo
+  set('indonesia','scenery',3,['1607427225127-a4ae1d4b050c','1681476193060-ebf1683bb56b','1628697723581-fd4ec5c38ab0']); // Komodo
   // hiking
   set('indonesia','hiking',0,['1505993597083-3bd19fb75e57','1518043610038-064362b44076','1534227749049-06c3ed80963c']); // Rinjani
   set('indonesia','hiking',1,['1597553716923-45474a48fbe4','1505993597083-3bd19fb75e57','1723407877285-584e2d0053ab']); // Ijen
-  set('indonesia','hiking',2,['1555400038-63f5ba517a47','1628697723581-fd4ec5c38ab0','1715755455989-76413081ad10']); // Kintamani
+  set('indonesia','hiking',2,['1628697723581-fd4ec5c38ab0','1555400038-63f5ba517a47','1715755455989-76413081ad10']); // Kintamani
   // parties
   set('indonesia','parties',0,['1633820313053-fa030b13ef94','1555400038-a088c772c8cd','1681476193060-ebf1683bb56b']); // Bali Seminyak
   set('indonesia','parties',1,['1715755455989-76413081ad10','1555400038-63f5ba517a47','1628697723581-fd4ec5c38ab0']); // Gili Islands
   set('indonesia','parties',2,['1555400038-a088c772c8cd','1633820313053-fa030b13ef94','1513415756790-2ac1db1297d0']); // Kuta
   // beaches
-  set('indonesia','beaches',0,['1555400038-63f5ba517a47','1715755455989-76413081ad10','1628697723581-fd4ec5c38ab0']); // Nusa Penida
+  set('indonesia','beaches',0,['1539367628448-4bc5c9d171c8','1715755455989-76413081ad10','1628697723581-fd4ec5c38ab0']); // Nusa Penida
   set('indonesia','beaches',1,['1513415756790-2ac1db1297d0','1628697723581-fd4ec5c38ab0','1555400038-a088c772c8cd']); // Gili Air
   set('indonesia','beaches',2,['1633820313053-fa030b13ef94','1681476193060-ebf1683bb56b','1555400038-63f5ba517a47']); // Kuta Bali
   // attractions
@@ -536,20 +537,20 @@
   set('srilanka','scenery',0,['1663784025074-49e9e7f11f62','1656495783346-559815221595','1598135753163-6167c1a1ad65']); // Sigiriya
   set('srilanka','scenery',1,['1598135753163-6167c1a1ad65','1663784025074-49e9e7f11f62','1656495783346-559815221595']); // Ella tea hills
   set('srilanka','scenery',2,['1656495783346-559815221595','1598135753163-6167c1a1ad65','1663784025074-49e9e7f11f62']); // Kandy temple
-  set('srilanka','scenery',3,['1663784025074-49e9e7f11f62','1598135753163-6167c1a1ad65','1656495783346-559815221595']); // Galle Fort
+  set('srilanka','scenery',3,['1568725764710-ffed6a9e5c8a','1598135753163-6167c1a1ad65','1663784025074-49e9e7f11f62']); // Galle Fort
   // hiking
-  set('srilanka','hiking',0,['1598135753163-6167c1a1ad65','1663784025074-49e9e7f11f62','1656495783346-559815221595']); // Adam's Peak
-  set('srilanka','hiking',1,['1663784025074-49e9e7f11f62','1656495783346-559815221595','1598135753163-6167c1a1ad65']); // Little Adam's Peak Ella
+  set('srilanka','hiking',0,['1676700819414-dfb401c60201','1663784025074-49e9e7f11f62','1656495783346-559815221595']); // Adam's Peak
+  set('srilanka','hiking',1,['1592916991582-80a0ab26a0c2','1656495783346-559815221595','1598135753163-6167c1a1ad65']); // Little Adam's Peak Ella
   // parties
-  set('srilanka','parties',0,['1656495783346-559815221595','1598135753163-6167c1a1ad65','1663784025074-49e9e7f11f62']); // Colombo Sky Bar
+  set('srilanka','parties',0,['1718210142145-91d159d05815','1598135753163-6167c1a1ad65','1663784025074-49e9e7f11f62']); // Colombo Sky Bar
   // beaches
-  set('srilanka','beaches',0,['1663784025074-49e9e7f11f62','1598135753163-6167c1a1ad65','1656495783346-559815221595']); // Mirissa / Coconut Hill
-  set('srilanka','beaches',1,['1598135753163-6167c1a1ad65','1656495783346-559815221595','1663784025074-49e9e7f11f62']); // Arugam Bay surf
-  set('srilanka','beaches',2,['1656495783346-559815221595','1663784025074-49e9e7f11f62','1598135753163-6167c1a1ad65']); // Jungle Beach Unawatuna
+  set('srilanka','beaches',0,['1727095123599-eb42ef3309e2','1673884392547-f50aa2f3c72e','1641954227961-336a969c7e71']); // Mirissa / Coconut Hill
+  set('srilanka','beaches',1,['1641954227961-336a969c7e71','1727095123599-eb42ef3309e2','1676700819414-dfb401c60201']); // Arugam Bay surf
+  set('srilanka','beaches',2,['1673884392547-f50aa2f3c72e','1592916991582-80a0ab26a0c2','1727095123599-eb42ef3309e2']); // Jungle Beach Unawatuna
   // attractions
   set('srilanka','attractions',0,['1663784025074-49e9e7f11f62','1656495783346-559815221595','1598135753163-6167c1a1ad65']); // Sigiriya Rock
-  set('srilanka','attractions',1,['1598135753163-6167c1a1ad65','1663784025074-49e9e7f11f62','1656495783346-559815221595']); // Yala NP
-  set('srilanka','attractions',2,['1656495783346-559815221595','1598135753163-6167c1a1ad65','1663784025074-49e9e7f11f62']); // Galle Fort lighthouse
+  set('srilanka','attractions',1,['1621847473222-d85c022cbf07','1705936981588-a4192f66fcfb','1656495783346-559815221595']); // Yala NP leopard
+  set('srilanka','attractions',2,['1568725764710-ffed6a9e5c8a','1598135753163-6167c1a1ad65','1641954227961-336a969c7e71']); // Galle Fort lighthouse
 
   // ──────────── SOUTH AFRICA ────────────
   // scenery
@@ -761,9 +762,9 @@
   set('ecuador','mustdo',2,['1748211856747-6a37861a2021','1748139899951-ba3f80c12d37','1595517930215-d2778a56ac93']); // Quilotoa loop trek
 
   // srilanka
-  set('srilanka','mustdo',0,['1598135753163-6167c1a1ad65','1663784025074-49e9e7f11f62','1656495783346-559815221595']); // Adam's Peak pilgrimage
-  set('srilanka','mustdo',1,['1663784025074-49e9e7f11f62','1656495783346-559815221595','1598135753163-6167c1a1ad65']); // tuk-tuk road trip
-  set('srilanka','mustdo',2,['1656495783346-559815221595','1663784025074-49e9e7f11f62','1598135753163-6167c1a1ad65']); // whale watching Mirissa
+  set('srilanka','mustdo',0,['1705936981588-a4192f66fcfb','1663784025074-49e9e7f11f62','1656495783346-559815221595']); // Adam's Peak pilgrimage
+  set('srilanka','mustdo',1,['1664256608032-3007263ab0d6','1718210142145-91d159d05815','1598135753163-6167c1a1ad65']); // tuk-tuk road trip
+  set('srilanka','mustdo',2,['1673699405222-d67e9f2b825e','1727095123599-eb42ef3309e2','1673884392547-f50aa2f3c72e']); // whale watching Mirissa
 
   // southafrica
   set('southafrica','mustdo',0,['1580644906000-6e953181e153','1591596095955-92a580509b82','1557077590-f7cc67c1a101']); // Kruger NP safari
