@@ -223,7 +223,6 @@ function Navbar({ activePage, setActivePage }) {
             {id:'destinations',emoji:'🔍',label:'יעדים'},
             {id:'budget',emoji:'💰',label:'תקציב'},
             {id:'tips',emoji:'💡',label:'טיפים'},
-            {id:'insurance',emoji:'🛡️',label:'ביטוח'},
           ].map(item => (
             <button key={item.id} onClick={() => { setActivePage(item.id); setOpen(false); }}
               style={{background:'none', border:'none', cursor:'pointer', display:'flex', flexDirection:'column', alignItems:'center', gap:2, opacity: activePage===item.id ? 1 : 0.45}}>
@@ -231,6 +230,11 @@ function Navbar({ activePage, setActivePage }) {
               <span style={{fontSize:10, color: activePage===item.id ? '#f59e0b' : '#9ca3af', fontFamily:'Heebo,sans-serif', fontWeight:600}}>{item.label}</span>
             </button>
           ))}
+          <button onClick={() => setOpen(!open)}
+            style={{background:'none', border:'none', cursor:'pointer', display:'flex', flexDirection:'column', alignItems:'center', gap:2, opacity: open ? 1 : 0.45}}>
+            <span style={{fontSize:22}}>{open ? '✕' : '☰'}</span>
+            <span style={{fontSize:10, color: open ? '#f59e0b' : '#9ca3af', fontFamily:'Heebo,sans-serif', fontWeight:600}}>עוד</span>
+          </button>
         </div>
       </div>
     </nav>
