@@ -67,21 +67,6 @@ var DEST_VIDEOS = {
   southafrica: 'xNHNcofAWJw',  // Cape Town & South Africa - Ultimate Travel Guide 4K
 };
 
-// Built-in fallback for BUDGET_DATA (used by BudgetCalculator)
-if (typeof BUDGET_DATA === 'undefined') {
-  var BUDGET_DATA = {
-    thailand:   { name: 'תאילנד',          emoji: '🇹🇭', accommodation: { low: 40,  mid: 120, high: 300 }, food: { low: 50,  mid: 120, high: 250 }, transport: { low: 20, mid: 60,  high: 150 }, activities: { low: 30,  mid: 100, high: 250 }, flights: 2800, visa: 0,   insurancePer30: 300, note: 'זול מאוד! חוף + Full Moon Party + Spa' },
-    vietnam:    { name: 'וייטנאם',         emoji: '🇻🇳', accommodation: { low: 35,  mid: 100, high: 280 }, food: { low: 40,  mid: 100, high: 200 }, transport: { low: 30, mid: 70,  high: 150 }, activities: { low: 25,  mid: 80,  high: 200 }, flights: 3000, visa: 100, insurancePer30: 300, note: 'זול + ייחודי + האלונג Bay!' },
-    indonesia:  { name: 'באלי / אינדונזיה', emoji: '🇮🇩', accommodation: { low: 50,  mid: 150, high: 400 }, food: { low: 40,  mid: 110, high: 280 }, transport: { low: 30, mid: 80,  high: 200 }, activities: { low: 40,  mid: 120, high: 300 }, flights: 3200, visa: 0,   insurancePer30: 300, note: 'יחסית זול + Beach Clubs שווים!' },
-    peru:       { name: 'פרו',              emoji: '🇵🇪', accommodation: { low: 60,  mid: 160, high: 400 }, food: { low: 55,  mid: 140, high: 300 }, transport: { low: 40, mid: 100, high: 250 }, activities: { low: 80,  mid: 200, high: 500 }, flights: 5500, visa: 0,   insurancePer30: 350, note: "מאצ'ו פיצ'ו + Rainbow Mountain = שווה!" },
-    colombia:   { name: 'קולומביה',         emoji: '🇨🇴', accommodation: { low: 60,  mid: 170, high: 400 }, food: { low: 50,  mid: 130, high: 280 }, transport: { low: 35, mid: 90,  high: 220 }, activities: { low: 60,  mid: 150, high: 400 }, flights: 5000, visa: 0,   insurancePer30: 350, note: 'מדיין + קרטחנה = קסם! טרנד גדול' },
-    argentina:  { name: 'ארגנטינה',         emoji: '🇦🇷', accommodation: { low: 70,  mid: 200, high: 500 }, food: { low: 60,  mid: 160, high: 350 }, transport: { low: 50, mid: 120, high: 300 }, activities: { low: 70,  mid: 180, high: 450 }, flights: 5500, visa: 0,   insurancePer30: 380, note: 'שים לב לכלכלה - שמור על Blue Dollar!' },
-    australia:  { name: 'אוסטרליה',         emoji: '🇦🇺', accommodation: { low: 180, mid: 400, high: 900 }, food: { low: 100, mid: 220, high: 450 }, transport: { low: 80, mid: 200, high: 500 }, activities: { low: 100, mid: 250, high: 600 }, flights: 4000, visa: 700, insurancePer30: 500, note: 'Working Holiday Visa - תשתכר ותכסה הוצאות!' },
-    kenya:      { name: 'קניה / מזרח אפריקה', emoji: '🇰🇪', accommodation: { low: 100, mid: 300, high: 800 }, food: { low: 60,  mid: 150, high: 350 }, transport: { low: 50, mid: 150, high: 400 }, activities: { low: 200, mid: 500, high: 1500}, flights: 2500, visa: 200, insurancePer30: 400, note: 'ספארי עולה הרבה אבל שווה כל שקל!' },
-    usa:        { name: 'ארה"ב',            emoji: '🇺🇸', accommodation: { low: 200, mid: 500, high: 1200}, food: { low: 130, mid: 280, high: 600 }, transport: { low: 100,mid: 250, high: 600 }, activities: { low: 100, mid: 250, high: 700 }, flights: 3500, visa: 60,  insurancePer30: 600, note: 'הכי יקר - לתכנן Road Trip לחסוך!' },
-  };
-}
-
 // ============================================================
 // 1. HomePage
 // ============================================================
