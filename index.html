@@ -142,54 +142,78 @@ function Navbar({ activePage, setActivePage }) {
     background:'linear-gradient(135deg,#f59e0b,#ef4444,#8b5cf6)',
     WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent'
   };
+  var QUICK = [
+    {id:'destinations',emoji:'🔍',label:'חיפוש יעד'},
+    {id:'budget',emoji:'💰',label:'תקציב'},
+    {id:'insurance',emoji:'🛡️',label:'ביטוח'},
+    {id:'tips',emoji:'💡',label:'טיפים'},
+  ];
   return (
     <nav style={navStyle}>
-      {/* Desktop */}
-      <div className="hidden md:flex items-center justify-between px-6 py-3 max-w-7xl mx-auto">
-        <button onClick={() => setActivePage('home')} className="flex items-center gap-2 shrink-0">
-          <span style={{fontSize:24}}>✈️</span>
+      {/* Top bar — unified desktop + mobile */}
+      <div className="flex items-center justify-between px-4 md:px-6 py-3 max-w-7xl mx-auto">
+        {/* Logo */}
+        <button onClick={() => { setActivePage('home'); setOpen(false); }} className="flex items-center gap-2 shrink-0">
+          <span style={{fontSize:22}}>✈️</span>
           <div>
-            <div style={{...logoGrad, fontWeight:900, fontSize:18, lineHeight:1.1}}>הטיול הגדול</div>
-            <div style={{color:'#6b7280', fontSize:11}}>מדריך המטייל הישראלי</div>
+            <div style={{...logoGrad, fontWeight:900, fontSize:17, lineHeight:1.1}}>הטיול הגדול</div>
+            <div className="hidden sm:block" style={{color:'#6b7280', fontSize:10}}>מדריך המטייל הישראלי</div>
           </div>
         </button>
-        <div className="flex flex-wrap gap-1 justify-end">
-          {NAV_ITEMS.slice(1).map(item => (
-            <button key={item.id} onClick={() => setActivePage(item.id)}
+        {/* Quick links — desktop only */}
+        <div className="hidden lg:flex gap-1 mx-4">
+          {QUICK.map(item => (
+            <button key={item.id} onClick={() => { setActivePage(item.id); setOpen(false); }}
               className={activePage === item.id ? 'tab-btn tab-active' : 'tab-btn tab-inactive'}>
               {item.emoji} {item.label}
             </button>
           ))}
         </div>
-      </div>
-      {/* Mobile top */}
-      <div className="flex md:hidden items-center justify-between px-4 py-3">
-        <button onClick={() => setActivePage('home')} className="flex items-center gap-2">
-          <span>✈️</span>
-          <span style={{...logoGrad, fontWeight:900, fontSize:17}}>הטיול הגדול</span>
+        {/* Hamburger — all sizes */}
+        <button onClick={() => setOpen(!open)} style={{
+          display:'flex', alignItems:'center', gap:6, cursor:'pointer',
+          background: open ? 'rgba(245,158,11,0.18)' : 'rgba(255,255,255,0.08)',
+          border: '1px solid ' + (open ? 'rgba(245,158,11,0.45)' : 'rgba(255,255,255,0.12)'),
+          color: open ? '#f59e0b' : 'white',
+          borderRadius:10, padding:'7px 13px',
+          fontFamily:'Heebo,sans-serif', fontSize:14, fontWeight:700, lineHeight:1
+        }}>
+          <span style={{fontSize:17, lineHeight:1}}>{open ? '✕' : '☰'}</span>
+          <span className="hidden sm:inline">{open ? 'סגור' : 'כל הדפים'}</span>
         </button>
-        <button onClick={() => setOpen(!open)}
-          style={{background:'rgba(255,255,255,0.1)', border:'none', color:'white', borderRadius:8, padding:'6px 10px', cursor:'pointer', fontSize:18}}>
-          {open ? '✕' : '☰'}
-        </button>
       </div>
-      {/* Mobile dropdown */}
+
+      {/* Full dropdown — all pages */}
       {open && (
-        <div style={{background:'rgba(10,10,20,0.99)', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
-          {NAV_ITEMS.map(item => (
-            <button key={item.id}
-              onClick={() => { setActivePage(item.id); setOpen(false); }}
-              style={{
-                display:'block', width:'100%', textAlign:'right', padding:'12px 20px',
-                background: activePage===item.id ? 'rgba(245,158,11,0.1)' : 'transparent',
-                color: activePage===item.id ? '#f59e0b' : '#d1d5db',
-                border:'none', cursor:'pointer', fontFamily:'Heebo,sans-serif', fontSize:14, fontWeight:600
-              }}>
-              {item.emoji} {item.label}
-            </button>
-          ))}
+        <div style={{
+          background:'rgba(8,8,18,0.98)', borderTop:'1px solid rgba(255,255,255,0.08)',
+          padding:'16px 16px 20px', maxHeight:'80vh', overflowY:'auto'
+        }}>
+          <div style={{
+            display:'grid',
+            gridTemplateColumns:'repeat(auto-fill, minmax(150px, 1fr))',
+            gap:8, maxWidth:900, margin:'0 auto'
+          }}>
+            {NAV_ITEMS.map(item => (
+              <button key={item.id}
+                onClick={() => { setActivePage(item.id); setOpen(false); }}
+                style={{
+                  display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center',
+                  gap:6, padding:'14px 10px', borderRadius:12, cursor:'pointer',
+                  background: activePage === item.id ? 'rgba(245,158,11,0.15)' : 'rgba(255,255,255,0.05)',
+                  border: '1px solid ' + (activePage === item.id ? 'rgba(245,158,11,0.4)' : 'rgba(255,255,255,0.08)'),
+                  color: activePage === item.id ? '#f59e0b' : '#d1d5db',
+                  fontFamily:'Heebo,sans-serif', fontSize:13, fontWeight:700,
+                  textAlign:'center', direction:'rtl', transition:'all .15s'
+                }}>
+                <span style={{fontSize:24}}>{item.emoji}</span>
+                <span>{item.label}</span>
+              </button>
+            ))}
+          </div>
         </div>
       )}
+
       {/* Mobile bottom nav */}
       <div className="fixed bottom-0 right-0 left-0 md:hidden"
         style={{background:'rgba(10,10,20,0.97)', borderTop:'1px solid rgba(255,255,255,0.08)', zIndex:100}}>
@@ -201,7 +225,7 @@ function Navbar({ activePage, setActivePage }) {
             {id:'tips',emoji:'💡',label:'טיפים'},
             {id:'insurance',emoji:'🛡️',label:'ביטוח'},
           ].map(item => (
-            <button key={item.id} onClick={() => setActivePage(item.id)}
+            <button key={item.id} onClick={() => { setActivePage(item.id); setOpen(false); }}
               style={{background:'none', border:'none', cursor:'pointer', display:'flex', flexDirection:'column', alignItems:'center', gap:2, opacity: activePage===item.id ? 1 : 0.45}}>
               <span style={{fontSize:22}}>{item.emoji}</span>
               <span style={{fontSize:10, color: activePage===item.id ? '#f59e0b' : '#9ca3af', fontFamily:'Heebo,sans-serif', fontWeight:600}}>{item.label}</span>
