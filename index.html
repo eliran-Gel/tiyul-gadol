@@ -113,7 +113,7 @@
 <script src="rich_enrich.js?v=1"></script>
 <script src="rich_enrich2.js?v=8"></script>
 <!-- Page components -->
-<script src="pages.js?v=9"></script>
+<script src="pages.js?v=10"></script>
 
 <!-- Main App -->
 <script type="text/babel">
@@ -149,44 +149,70 @@ function Navbar({ activePage, setActivePage }) {
     {id:'tips',emoji:'💡',label:'טיפים'},
   ];
   return (
-    <nav style={navStyle}>
-      {/* Top bar — unified desktop + mobile */}
-      <div className="flex items-center justify-between px-4 md:px-6 py-3 max-w-7xl mx-auto">
-        {/* Logo */}
-        <button onClick={() => { setActivePage('home'); setOpen(false); }} className="flex items-center gap-2 shrink-0">
-          <span style={{fontSize:22}}>✈️</span>
-          <div>
-            <div style={{...logoGrad, fontWeight:900, fontSize:17, lineHeight:1.1}}>הטיול הגדול</div>
-            <div className="hidden sm:block" style={{color:'#6b7280', fontSize:10}}>מדריך המטייל הישראלי</div>
+    <>
+      <nav style={navStyle}>
+        {/* Top bar — unified desktop + mobile */}
+        <div className="flex items-center justify-between px-4 md:px-6 py-3 max-w-7xl mx-auto">
+          {/* Logo */}
+          <button onClick={() => { setActivePage('home'); setOpen(false); }} className="flex items-center gap-2 shrink-0">
+            <span style={{fontSize:22}}>✈️</span>
+            <div>
+              <div style={{...logoGrad, fontWeight:900, fontSize:17, lineHeight:1.1}}>הטיול הגדול</div>
+              <div className="hidden sm:block" style={{color:'#6b7280', fontSize:10}}>מדריך המטייל הישראלי</div>
+            </div>
+          </button>
+          {/* Quick links — desktop only */}
+          <div className="hidden lg:flex gap-1 mx-4">
+            {QUICK.map(item => (
+              <button key={item.id} onClick={() => { setActivePage(item.id); setOpen(false); }}
+                className={activePage === item.id ? 'tab-btn tab-active' : 'tab-btn tab-inactive'}>
+                {item.emoji} {item.label}
+              </button>
+            ))}
           </div>
-        </button>
-        {/* Quick links — desktop only */}
-        <div className="hidden lg:flex gap-1 mx-4">
-          {QUICK.map(item => (
-            <button key={item.id} onClick={() => { setActivePage(item.id); setOpen(false); }}
-              className={activePage === item.id ? 'tab-btn tab-active' : 'tab-btn tab-inactive'}>
-              {item.emoji} {item.label}
-            </button>
-          ))}
+          {/* Hamburger — all sizes */}
+          <button onClick={() => setOpen(!open)} style={{
+            display:'flex', alignItems:'center', gap:6, cursor:'pointer',
+            background: open ? 'rgba(245,158,11,0.18)' : 'rgba(255,255,255,0.08)',
+            border: '1px solid ' + (open ? 'rgba(245,158,11,0.45)' : 'rgba(255,255,255,0.12)'),
+            color: open ? '#f59e0b' : 'white',
+            borderRadius:10, padding:'7px 13px',
+            fontFamily:'Heebo,sans-serif', fontSize:14, fontWeight:700, lineHeight:1
+          }}>
+            <span style={{fontSize:17, lineHeight:1}}>{open ? '✕' : '☰'}</span>
+            <span className="hidden sm:inline">{open ? 'סגור' : 'כל הדפים'}</span>
+          </button>
         </div>
-        {/* Hamburger — all sizes */}
-        <button onClick={() => setOpen(!open)} style={{
-          display:'flex', alignItems:'center', gap:6, cursor:'pointer',
-          background: open ? 'rgba(245,158,11,0.18)' : 'rgba(255,255,255,0.08)',
-          border: '1px solid ' + (open ? 'rgba(245,158,11,0.45)' : 'rgba(255,255,255,0.12)'),
-          color: open ? '#f59e0b' : 'white',
-          borderRadius:10, padding:'7px 13px',
-          fontFamily:'Heebo,sans-serif', fontSize:14, fontWeight:700, lineHeight:1
-        }}>
-          <span style={{fontSize:17, lineHeight:1}}>{open ? '✕' : '☰'}</span>
-          <span className="hidden sm:inline">{open ? 'סגור' : 'כל הדפים'}</span>
-        </button>
-      </div>
 
-      {/* Full-screen overlay — all pages */}
+        {/* Mobile bottom nav */}
+        <div className="fixed bottom-0 right-0 left-0 md:hidden"
+          style={{background:'rgba(10,10,20,0.97)', borderTop:'1px solid rgba(255,255,255,0.08)', zIndex:100}}>
+          <div className="flex justify-around py-2">
+            {[
+              {id:'home',emoji:'🏠',label:'בית'},
+              {id:'destinations',emoji:'🔍',label:'יעדים'},
+              {id:'budget',emoji:'💰',label:'תקציב'},
+              {id:'tips',emoji:'💡',label:'טיפים'},
+            ].map(item => (
+              <button key={item.id} onClick={() => { setActivePage(item.id); setOpen(false); }}
+                style={{background:'none', border:'none', cursor:'pointer', display:'flex', flexDirection:'column', alignItems:'center', gap:2, opacity: activePage===item.id ? 1 : 0.45}}>
+                <span style={{fontSize:22}}>{item.emoji}</span>
+                <span style={{fontSize:10, color: activePage===item.id ? '#f59e0b' : '#9ca3af', fontFamily:'Heebo,sans-serif', fontWeight:600}}>{item.label}</span>
+              </button>
+            ))}
+            <button onClick={() => setOpen(!open)}
+              style={{background:'none', border:'none', cursor:'pointer', display:'flex', flexDirection:'column', alignItems:'center', gap:2, opacity: open ? 1 : 0.45}}>
+              <span style={{fontSize:22}}>{open ? '✕' : '☰'}</span>
+              <span style={{fontSize:10, color: open ? '#f59e0b' : '#9ca3af', fontFamily:'Heebo,sans-serif', fontWeight:600}}>עוד</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Full-screen overlay — rendered OUTSIDE nav to escape backdropFilter stacking context */}
       {open && (
         <div style={{
-          position:'fixed', inset:0, zIndex:200,
+          position:'fixed', top:0, right:0, bottom:0, left:0, zIndex:200,
           background:'rgba(8,8,18,0.99)',
           display:'flex', flexDirection:'column', overflowY:'hidden'
         }}>
@@ -237,31 +263,7 @@ function Navbar({ activePage, setActivePage }) {
           </div>
         </div>
       )}
-
-      {/* Mobile bottom nav */}
-      <div className="fixed bottom-0 right-0 left-0 md:hidden"
-        style={{background:'rgba(10,10,20,0.97)', borderTop:'1px solid rgba(255,255,255,0.08)', zIndex:100}}>
-        <div className="flex justify-around py-2">
-          {[
-            {id:'home',emoji:'🏠',label:'בית'},
-            {id:'destinations',emoji:'🔍',label:'יעדים'},
-            {id:'budget',emoji:'💰',label:'תקציב'},
-            {id:'tips',emoji:'💡',label:'טיפים'},
-          ].map(item => (
-            <button key={item.id} onClick={() => { setActivePage(item.id); setOpen(false); }}
-              style={{background:'none', border:'none', cursor:'pointer', display:'flex', flexDirection:'column', alignItems:'center', gap:2, opacity: activePage===item.id ? 1 : 0.45}}>
-              <span style={{fontSize:22}}>{item.emoji}</span>
-              <span style={{fontSize:10, color: activePage===item.id ? '#f59e0b' : '#9ca3af', fontFamily:'Heebo,sans-serif', fontWeight:600}}>{item.label}</span>
-            </button>
-          ))}
-          <button onClick={() => setOpen(!open)}
-            style={{background:'none', border:'none', cursor:'pointer', display:'flex', flexDirection:'column', alignItems:'center', gap:2, opacity: open ? 1 : 0.45}}>
-            <span style={{fontSize:22}}>{open ? '✕' : '☰'}</span>
-            <span style={{fontSize:10, color: open ? '#f59e0b' : '#9ca3af', fontFamily:'Heebo,sans-serif', fontWeight:600}}>עוד</span>
-          </button>
-        </div>
-      </div>
-    </nav>
+    </>
   );
 }
 
