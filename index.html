@@ -183,33 +183,57 @@ function Navbar({ activePage, setActivePage }) {
         </button>
       </div>
 
-      {/* Full dropdown — all pages */}
+      {/* Full-screen overlay — all pages */}
       {open && (
         <div style={{
-          background:'rgba(8,8,18,0.98)', borderTop:'1px solid rgba(255,255,255,0.08)',
-          padding:'16px 16px 20px', maxHeight:'80vh', overflowY:'auto'
+          position:'fixed', inset:0, zIndex:200,
+          background:'rgba(8,8,18,0.99)',
+          display:'flex', flexDirection:'column', overflowY:'hidden'
         }}>
+          {/* Overlay header */}
           <div style={{
-            display:'grid',
-            gridTemplateColumns:'repeat(auto-fill, minmax(150px, 1fr))',
-            gap:8, maxWidth:900, margin:'0 auto'
+            display:'flex', alignItems:'center', justifyContent:'space-between',
+            padding:'14px 20px', flexShrink:0,
+            borderBottom:'1px solid rgba(255,255,255,0.08)',
+            background:'rgba(10,10,20,0.97)'
           }}>
-            {NAV_ITEMS.map(item => (
-              <button key={item.id}
-                onClick={() => { setActivePage(item.id); setOpen(false); }}
-                style={{
-                  display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center',
-                  gap:6, padding:'14px 10px', borderRadius:12, cursor:'pointer',
-                  background: activePage === item.id ? 'rgba(245,158,11,0.15)' : 'rgba(255,255,255,0.05)',
-                  border: '1px solid ' + (activePage === item.id ? 'rgba(245,158,11,0.4)' : 'rgba(255,255,255,0.08)'),
-                  color: activePage === item.id ? '#f59e0b' : '#d1d5db',
-                  fontFamily:'Heebo,sans-serif', fontSize:13, fontWeight:700,
-                  textAlign:'center', direction:'rtl', transition:'all .15s'
-                }}>
-                <span style={{fontSize:24}}>{item.emoji}</span>
-                <span>{item.label}</span>
-              </button>
-            ))}
+            <button onClick={() => setOpen(false)} style={{
+              display:'flex', alignItems:'center', gap:6, cursor:'pointer',
+              background:'rgba(255,255,255,0.08)', border:'1px solid rgba(255,255,255,0.12)',
+              color:'white', borderRadius:10, padding:'8px 14px',
+              fontFamily:'Heebo,sans-serif', fontSize:14, fontWeight:700
+            }}>
+              <span>✕</span><span>סגור</span>
+            </button>
+            <div style={{display:'flex', alignItems:'center', gap:8}}>
+              <span style={{fontSize:20}}>✈️</span>
+              <span style={{background:'linear-gradient(135deg,#f59e0b,#ef4444,#8b5cf6)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', fontWeight:900, fontSize:18, fontFamily:'Heebo,sans-serif'}}>הטיול הגדול</span>
+            </div>
+          </div>
+          {/* Scrollable grid */}
+          <div style={{flex:1, overflowY:'auto', padding:'16px 16px 24px'}}>
+            <div style={{
+              display:'grid',
+              gridTemplateColumns:'repeat(2, 1fr)',
+              gap:10, maxWidth:600, margin:'0 auto'
+            }}>
+              {NAV_ITEMS.map(item => (
+                <button key={item.id}
+                  onClick={() => { setActivePage(item.id); setOpen(false); }}
+                  style={{
+                    display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center',
+                    gap:8, padding:'22px 10px', borderRadius:14, cursor:'pointer',
+                    background: activePage === item.id ? 'rgba(245,158,11,0.15)' : 'rgba(255,255,255,0.05)',
+                    border: '1px solid ' + (activePage === item.id ? 'rgba(245,158,11,0.45)' : 'rgba(255,255,255,0.1)'),
+                    color: activePage === item.id ? '#f59e0b' : '#e5e7eb',
+                    fontFamily:'Heebo,sans-serif', fontSize:14, fontWeight:700,
+                    textAlign:'center', direction:'rtl', transition:'background .15s'
+                  }}>
+                  <span style={{fontSize:30}}>{item.emoji}</span>
+                  <span>{item.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       )}
