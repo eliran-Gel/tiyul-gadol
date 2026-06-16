@@ -33,6 +33,40 @@ if (typeof CREDIT_CARDS === 'undefined' && typeof creditCards !== 'undefined') {
 if (typeof TRAVELER_TIPS === 'undefined' && typeof travelerTips !== 'undefined') { var TRAVELER_TIPS = travelerTips; }
 if (typeof COMMON_MISTAKES === 'undefined' && typeof commonMistakes !== 'undefined') { var COMMON_MISTAKES = commonMistakes; }
 
+// ─── DESTINATION SCENIC VIDEOS (YouTube IDs) ─────────────────────────────────
+var DEST_VIDEOS = {
+  thailand:    'f6RqF2XS1E8',  // The most beautiful Islands in Thailand 2025
+  vietnam:     '1vONUVO_fQQ',  // Wonders of Vietnam - Most Stunning Landscapes 4K
+  indonesia:   'Mssr5pBmD3o',  // Indonesia 4K - Most Beautiful Islands, Temples & Landscapes
+  peru:        'czow86dm7ZE',  // Wonders of Peru - Most Beautiful Places 4K
+  colombia:    'QMhiH4_wj1o',  // Wonders of Colombia - Most Amazing Places 4K
+  argentina:   'yFC9nWo4zDU',  // Wonders of Argentina - Most Amazing Places 4K
+  australia:   '93utcTSKRy4',  // Wonders of Australia - Most Amazing Places 4K
+  kenya:       'irG_Kj21c1I',  // Masai Mara - African Wildlife in 4K
+  usa:         'JUfybRQc_1o',  // Top 25 Places To Visit In The USA
+  philippines: 'ZaDrcVh1l4E',  // Wonders of the Philippines - Most Amazing Places 4K
+  morocco:     'SbVjY45vlLM',  // Wonders of Morocco - Most Amazing Places 4K
+  newzealand:  'a2ZT0Zermy0',  // 10 Most Beautiful Places in New Zealand 4K
+  cambodia:    'EPNtkzz4u-A',  // Top 10 Best Places to Visit in Cambodia 2025
+  brazil:      '_8e1Ki6LfWY',  // 10 Most Beautiful Natural Wonders of Brazil 4K
+  uganda:      'zPrp684rDJQ',  // Wonders of Uganda - Most Beautiful Places 4K
+  japan:       'DcwfCyFg0VQ',  // Wonders of Japan - Most Amazing Places 4K
+  bolivia:     'xDgkLihHmdc',  // Wonders of Bolivia - Most Amazing Places 4K
+  mexico:      'Y6qzKNws2MM',  // Wonders of Latin America - Most Amazing Places 4K
+  tanzania:    'uaZzsJGh3qM',  // Wonders of Tanzania - Africa's Wild Heart 4K
+  india:       'FM2OuVbkPVw',  // Wonders of India - Most Amazing Places 4K
+  namibia:     'MbactdC-0Pw',  // Wonders of Africa - Most Amazing Places 4K
+  guatemala:   'Y6qzKNws2MM',  // Wonders of Latin America - Most Amazing Places 4K
+  laos:        'Eel6feng7Dg',  // Vietnam, Cambodia, Laos & Thailand 4K
+  chile:       '5FVhJa-xwIQ',  // Top 10 Places To Visit in Patagonia
+  costarica:   'TkBwm_cCGHA',  // Wonders of Costa Rica - Most Amazing Places 4K
+  nepal:       'I7Bc8pe_hCU',  // Nepal In 4K - Country Of The Highest Mountain
+  madagascar:  '6jP4ZUWSoJs',  // Wonders of Madagascar - Most Amazing Places 4K
+  ecuador:     'hUjnWOh8BUw',  // Wonders of Ecuador - Best Places 4K
+  srilanka:    'tjU5OtswxZo',  // Sri Lanka In 4K - Land Of Stunning Natural Wonders
+  southafrica: 'xNHNcofAWJw',  // Cape Town & South Africa - Ultimate Travel Guide 4K
+};
+
 // Built-in fallback for BUDGET_DATA (used by BudgetCalculator)
 if (typeof BUDGET_DATA === 'undefined') {
   var BUDGET_DATA = {
@@ -698,6 +732,38 @@ var DestinationExplorer = function(props) {
             isOpen && React.createElement(AccordionItemContent, { item: item, destName: dest ? dest.name : '' })
           );
         })
+      ),
+
+      // ── Scenic Video Section ──
+      dest && DEST_VIDEOS[dest.id] && React.createElement('div', {
+        style: { marginTop: '32px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.08)' }
+      },
+        React.createElement('h3', {
+          style: { fontSize: '1.1rem', fontWeight: '800', marginBottom: '12px', color: '#f59e0b', display: 'flex', alignItems: 'center', gap: '8px' }
+        }, '🎬 סרטון נופים — ', dest.name),
+        React.createElement('div', {
+          style: { borderRadius: '14px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: '#000' }
+        },
+          React.createElement('iframe', {
+            width: '100%',
+            height: '240',
+            src: 'https://www.youtube.com/embed/' + DEST_VIDEOS[dest.id] + '?rel=0&modestbranding=1',
+            title: dest.name + ' scenic video',
+            style: { border: 'none', display: 'block' },
+            allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
+            allowFullScreen: true,
+          })
+        ),
+        React.createElement('a', {
+          href: 'https://www.youtube.com/watch?v=' + DEST_VIDEOS[dest.id],
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          style: {
+            display: 'inline-flex', alignItems: 'center', gap: '6px',
+            marginTop: '10px', color: '#9ca3af', fontSize: '0.8rem',
+            fontWeight: '600', textDecoration: 'none', fontFamily: 'Heebo, sans-serif',
+          }
+        }, '▶ לצפות ביוטיוב')
       )
     )
   );
@@ -1015,34 +1081,66 @@ var AmericaVsAsia = function() {
 
       // YouTube iframes
       React.createElement('h3', { style: { fontSize: '1.4rem', fontWeight: '900', marginBottom: '16px', textAlign: 'center' } }, '🎬 סרטוני השראה'),
-      React.createElement('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' } },
-        React.createElement('div', null,
-          React.createElement('p', { style: { color: '#f59e0b', fontWeight: '700', marginBottom: '8px', textAlign: 'center' } }, '🌏 מזרח אסיה'),
-          React.createElement('div', { style: { borderRadius: '12px', overflow: 'hidden' } },
+      React.createElement('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' } },
+        // East Asia video
+        React.createElement('div', { style: { background: 'rgba(245,158,11,0.07)', border: '1px solid rgba(245,158,11,0.2)', borderRadius: '14px', padding: '12px' } },
+          React.createElement('p', { style: { color: '#f59e0b', fontWeight: '800', marginBottom: '8px', textAlign: 'center', fontSize: '0.9rem' } }, '🌏 למה לטוס למזרח?'),
+          React.createElement('div', { style: { borderRadius: '10px', overflow: 'hidden', background: '#000' } },
             React.createElement('iframe', {
               width: '100%',
-              height: '220',
-              src: 'https://www.youtube.com/embed/YGb2GPTCKIU',
-              title: 'Asia Travel',
+              height: '175',
+              src: 'https://www.youtube.com/embed/Eel6feng7Dg?rel=0&modestbranding=1',
+              title: 'East Asia Travel',
               style: { border: 'none', display: 'block' },
               allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
               allowFullScreen: true,
             })
-          )
+          ),
+          React.createElement('a', {
+            href: 'https://www.youtube.com/watch?v=Eel6feng7Dg',
+            target: '_blank', rel: 'noopener noreferrer',
+            style: { display: 'block', textAlign: 'center', marginTop: '8px', color: '#9ca3af', fontSize: '0.75rem', textDecoration: 'none' }
+          }, '▶ פתח ביוטיוב')
         ),
-        React.createElement('div', null,
-          React.createElement('p', { style: { color: '#14b8a6', fontWeight: '700', marginBottom: '8px', textAlign: 'center' } }, '🌎 דרום אמריקה'),
-          React.createElement('div', { style: { borderRadius: '12px', overflow: 'hidden' } },
+        // South America video
+        React.createElement('div', { style: { background: 'rgba(20,184,166,0.07)', border: '1px solid rgba(20,184,166,0.2)', borderRadius: '14px', padding: '12px' } },
+          React.createElement('p', { style: { color: '#14b8a6', fontWeight: '800', marginBottom: '8px', textAlign: 'center', fontSize: '0.9rem' } }, '🌎 למה לטוס לדרום אמריקה?'),
+          React.createElement('div', { style: { borderRadius: '10px', overflow: 'hidden', background: '#000' } },
             React.createElement('iframe', {
               width: '100%',
-              height: '220',
-              src: 'https://www.youtube.com/embed/eLzv-gJjHn8',
+              height: '175',
+              src: 'https://www.youtube.com/embed/v1IXqRRgPY8?rel=0&modestbranding=1',
               title: 'South America Travel',
               style: { border: 'none', display: 'block' },
               allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
               allowFullScreen: true,
             })
-          )
+          ),
+          React.createElement('a', {
+            href: 'https://www.youtube.com/watch?v=v1IXqRRgPY8',
+            target: '_blank', rel: 'noopener noreferrer',
+            style: { display: 'block', textAlign: 'center', marginTop: '8px', color: '#9ca3af', fontSize: '0.75rem', textDecoration: 'none' }
+          }, '▶ פתח ביוטיוב')
+        ),
+        // User's specific video
+        React.createElement('div', { style: { background: 'rgba(139,92,246,0.07)', border: '1px solid rgba(139,92,246,0.2)', borderRadius: '14px', padding: '12px' } },
+          React.createElement('p', { style: { color: '#a78bfa', fontWeight: '800', marginBottom: '8px', textAlign: 'center', fontSize: '0.9rem' } }, '✈️ מזרח vs דרום אמריקה'),
+          React.createElement('div', { style: { borderRadius: '10px', overflow: 'hidden', background: '#000' } },
+            React.createElement('iframe', {
+              width: '100%',
+              height: '175',
+              src: 'https://www.youtube.com/embed/s_lDV45pRN0?rel=0&modestbranding=1',
+              title: 'East vs South America',
+              style: { border: 'none', display: 'block' },
+              allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
+              allowFullScreen: true,
+            })
+          ),
+          React.createElement('a', {
+            href: 'https://www.youtube.com/watch?v=s_lDV45pRN0',
+            target: '_blank', rel: 'noopener noreferrer',
+            style: { display: 'block', textAlign: 'center', marginTop: '8px', color: '#9ca3af', fontSize: '0.75rem', textDecoration: 'none' }
+          }, '▶ פתח ביוטיוב')
         )
       )
     )
