@@ -639,24 +639,25 @@ var destinations = {
       scenery: {
         icon: '🏔️',
         items: [
+          'אושואיה - קצה העולם! הרים, ים ושלג בבת-אחת',
           'פטגוניה - Torres del Paine (עם צ\'ילה)',
-          'Mount Fitz Roy בAltacama - שדה קרח',
+          'Mount Fitz Roy ב-El Chaltén - שדה קרח אינסופי',
           'Iguazú Falls - הכי גדול בעולם (UNESCO)',
-          'Quebrada de Humahuaca - עמק צבעוני',
-          'Valle de Uco במנדוסה - כרמים + הרים',
-          'Tierra del Fuego - קצה העולם',
-          'Salinas Grandes - מלחה לבנה'
+          'Quebrada de Humahuaca - עמק צבעוני בצפון',
+          'Valle de Uco במנדוסה - כרמים + הרים מושלגים',
+          'Salinas Grandes - מלחה לבנה ענקית'
         ]
       },
       hiking: {
         icon: '🥾',
         items: [
+          'Tierra del Fuego National Park - שבילים באושואיה עם נוף לתעלה',
+          'Glaciar Martial מעל אושואיה - עלייה קצרה, נוף מטורף',
           'Torres del Paine W Trek - 5 ימים (MUST!)',
-          'Mount Fitz Roy Day Hike מ-El Calafate',
-          'Perito Moreno Glacier Walk',
+          'Mount Fitz Roy Day Hike מ-El Chaltén - הנוף הכי מצולם בפטגוניה',
+          'Perito Moreno Glacier Walk - הליכה על קרחון!',
           'Cerro Tronador בBariloche',
-          'Nahuel Huapi Circuit - 7 ימים',
-          'Quebrada del Condorito - קוֹנדוֹרים!'
+          'Nahuel Huapi Circuit - 7 ימים'
         ]
       },
       parties: {
@@ -681,13 +682,15 @@ var destinations = {
       attractions: {
         icon: '🎯',
         items: [
+          'אושואיה - רכבת "קצה העולם" (Tren del Fin del Mundo)',
+          'אושואיה - שייט בתעלת ביגל לראות פינגווינים וכלבי ים',
+          'אושואיה - מוזיאון העיר הדרומית ביותר בעולם',
           'Iguazú Falls - מ-2 הצדדים (ארגנטינה+ברזיל)',
           'Perito Moreno Glacier - הקרחון שמתקדם!',
           'Buenos Aires - La Boca + El Caminito',
           'Cementerio de la Recoleta - קברי האבירים',
           'Wines in Mendoza - Malbec Tasting',
-          'Casa Rosada + Plaza de Mayo',
-          'Ushuaia - העיר הדרומית ביותר בעולם'
+          'Casa Rosada + Plaza de Mayo'
         ]
       },
       food: {
@@ -705,12 +708,14 @@ var destinations = {
       mustDo: {
         icon: '⭐',
         items: [
+          'אושואיה — לעמוד בקצה העולם ולהרגיש את זה!!',
+          'שייט בתעלת ביגל מאושואיה - פינגווינים מקרוב',
           'Torres del Paine W Trek - חובה!!',
           'Asado אמיתי אצל מקומיים',
           'Tango Lesson + Milonga בלילה',
           'Iguazú Falls - מ-2 הצדדים!',
           'Perito Moreno הליכה על הקרחון',
-          'Malbec Tasting בקמרה בחישוף',
+          'Malbec Tasting במנדוסה',
           'Buenos Aires - San Telmo Market ביום ראשון'
         ]
       }
