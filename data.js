@@ -1594,24 +1594,24 @@ var facebookGroups = [
     color: 'from-purple-600 to-indigo-600',
     groups: [
       {
-        name: 'טיול גדול - ישראלים בעולם',
-        url: 'https://www.facebook.com/groups/tiyulgadol',
-        members: '150,000+',
-        description: 'הקבוצה הכי גדולה למטיילים ישראלים. שאלות, טיפים, מציאת חברותא, הכל!',
+        name: 'Israel Explorers - Travel and Advice',
+        url: 'https://www.facebook.com/groups/583367362567958/',
+        members: '50,000+',
+        description: 'קהילת מטיילים ישראלים - שאלות, טיפים, המלצות על יעדים בעולם',
         type: 'כללי',
         active: true
       },
       {
-        name: 'ישראלים בחו"ל - טיולים ועבודה',
-        url: 'https://www.facebook.com/groups/israelisabroad',
+        name: 'חו"ל זה כאן',
+        url: 'https://www.facebook.com/groups/travelishere/',
         members: '80,000+',
-        description: 'לוגיסטיקה, ויזות, עבודה בחו"ל, טיפים כלליים',
+        description: 'לוגיסטיקה, ויזות, עבודה בחו"ל, טיפים כלליים למטיילים ישראלים',
         type: 'כללי',
         active: true
       },
       {
-        name: 'מחפש/ת חברותא לטיול',
-        url: 'https://www.facebook.com/groups/chaveruta',
+        name: 'שותפים ספונטניים לטיול',
+        url: 'https://www.facebook.com/groups/262761807476301/',
         members: '45,000+',
         description: 'למצוא חבר/ה לטיול - לפי יעד ותאריך',
         type: 'חברותא',
@@ -1626,7 +1626,7 @@ var facebookGroups = [
     groups: [
       {
         name: 'ישראלים בתאילנד',
-        url: 'https://www.facebook.com/groups/israeliinthailand',
+        url: 'https://www.facebook.com/groups/458765311636355/',
         members: '120,000+',
         description: 'הקבוצה הכי פעילה לתאילנד - כל שאלה מוצאת תשובה תוך דקות',
         type: 'יעד',
@@ -1634,8 +1634,8 @@ var facebookGroups = [
         hot: true
       },
       {
-        name: 'ישראלים בבאלי ואינדונזיה',
-        url: 'https://www.facebook.com/groups/israelisbali',
+        name: 'ישראלים בבאלי - הקבוצה הרשמית',
+        url: 'https://www.facebook.com/groups/578759567740165/',
         members: '65,000+',
         description: 'באלי, לומבוק, גילי, ג\'אווה - הכל כאן',
         type: 'יעד',
@@ -1643,8 +1643,8 @@ var facebookGroups = [
         hot: true
       },
       {
-        name: 'ישראלים בוייטנאם',
-        url: 'https://www.facebook.com/groups/israelisvietnam',
+        name: 'וייטנאם - מטיילים בוייטנאם',
+        url: 'https://www.facebook.com/groups/123928178238976/',
         members: '55,000+',
         description: 'האנוי, האלונג, הוי-אן, סייגון - הרצאות וטיפים',
         type: 'יעד',
@@ -1652,23 +1652,23 @@ var facebookGroups = [
       },
       {
         name: 'ישראלים בנפאל',
-        url: 'https://www.facebook.com/groups/israelisnepal',
+        url: 'https://www.facebook.com/groups/nepalim/',
         members: '35,000+',
         description: 'טרקינגים, קטמנדו, פוקארה - הכל על נפאל',
         type: 'יעד',
         active: true
       },
       {
-        name: 'ישראלים בקמבודיה ולאוס',
-        url: 'https://www.facebook.com/groups/israeliscambodiaLaos',
+        name: 'המשולש - וייטנאם, לאוס, קמבודיה',
+        url: 'https://www.facebook.com/groups/167618923784710/',
         members: '28,000+',
         description: 'אנגקור וואט, ואנג ויאנג, לואנג פרבאנג',
         type: 'יעד',
         active: true
       },
       {
-        name: 'Full Moon Party Israel 🎉',
-        url: 'https://www.facebook.com/groups/fullmoonisrael',
+        name: 'מטיילים במזרח - תאילנד, פיליפינים, ויאטנם 🎉',
+        url: 'https://www.facebook.com/groups/travelorrt/',
         members: '22,000+',
         description: 'כל מה שצריך לדעת על הפולמון - תאריכים, הוסטלים, מניות',
         type: 'אירוע',
@@ -1683,8 +1683,8 @@ var facebookGroups = [
     color: 'from-green-500 to-teal-600',
     groups: [
       {
-        name: 'ישראלים בדרום אמריקה',
-        url: 'https://www.facebook.com/groups/israelissouthamerica',
+        name: 'ישראלים בדרום אמריקה (הקבוצה הרשמית)',
+        url: 'https://www.facebook.com/groups/1977142032536546/',
         members: '95,000+',
         description: 'קבוצת האם לדרום אמריקה - הכל מפרו ועד פטגוניה',
         type: 'אזור',
@@ -1693,7 +1693,7 @@ var facebookGroups = [
       },
       {
         name: 'ישראלים בקולומביה',
-        url: 'https://www.facebook.com/groups/israeliscolombia',
+        url: 'https://www.facebook.com/groups/531128057090618/',
         members: '42,000+',
         description: 'מדיין, קרטחנה, בוגוטה - קולומביה של 2024',
         type: 'יעד',
@@ -1701,8 +1701,8 @@ var facebookGroups = [
         hot: true
       },
       {
-        name: 'ישראלים בפרו',
-        url: 'https://www.facebook.com/groups/israelisperu',
+        name: 'פרו ובוליביה למטיילים',
+        url: 'https://www.facebook.com/groups/1630035737222203/',
         members: '38,000+',
         description: 'מאצ\'ו פיצ\'ו, קוסקו, Rainbow Mountain - הכל על פרו',
         type: 'יעד',
@@ -1710,7 +1710,7 @@ var facebookGroups = [
       },
       {
         name: 'ישראלים בארגנטינה',
-        url: 'https://www.facebook.com/groups/israelisargentina',
+        url: 'https://www.facebook.com/groups/396364313849096/',
         members: '30,000+',
         description: 'בואנוס איירס, פטגוניה, מנדוסה - ארגנטינה הכל',
         type: 'יעד',
@@ -1718,15 +1718,15 @@ var facebookGroups = [
       },
       {
         name: 'ישראלים בברזיל',
-        url: 'https://www.facebook.com/groups/israelisbrazil',
+        url: 'https://www.facebook.com/groups/israelenses.no.brasil/',
         members: '25,000+',
         description: 'ריו, פלורינופוליס, אמאזונס - ברזיל הצבעונית',
         type: 'יעד',
         active: true
       },
       {
-        name: 'ישראלים בבוליביה',
-        url: 'https://www.facebook.com/groups/israelisbolivia',
+        name: 'מטיילים ביחד - דרום/מרכז אמריקה',
+        url: 'https://www.facebook.com/groups/1506838249572906/',
         members: '18,000+',
         description: 'Salar de Uyuni, La Paz, Sucre - בוליביה',
         type: 'יעד',
@@ -1741,7 +1741,7 @@ var facebookGroups = [
     groups: [
       {
         name: 'ישראלים באוסטרליה',
-        url: 'https://www.facebook.com/groups/israelisaustralia',
+        url: 'https://www.facebook.com/groups/629973183741269/',
         members: '110,000+',
         description: 'קבוצת-על לאוסטרליה - Working Holiday, טיולים, עבודה',
         type: 'אזור',
@@ -1750,7 +1750,7 @@ var facebookGroups = [
       },
       {
         name: 'Working Holiday ישראלים באוסטרליה',
-        url: 'https://www.facebook.com/groups/whvaustralia',
+        url: 'https://www.facebook.com/groups/australia.israel/',
         members: '75,000+',
         description: 'ויזת WHV - עבודה בפארם, מציאת עבודה, Second Year Visa',
         type: 'עבודה',
@@ -1759,7 +1759,7 @@ var facebookGroups = [
       },
       {
         name: 'ישראלים בניו זילנד',
-        url: 'https://www.facebook.com/groups/israelisnewzealand',
+        url: 'https://www.facebook.com/groups/isranz/',
         members: '28,000+',
         description: 'לורד אוף זה רינגס, פיורדים, טרקינגים',
         type: 'יעד',
@@ -1773,16 +1773,16 @@ var facebookGroups = [
     color: 'from-amber-500 to-yellow-500',
     groups: [
       {
-        name: 'ישראלים באפריקה',
-        url: 'https://www.facebook.com/groups/israelisafrica',
+        name: 'מטיילים באפריקה - ספארי, תרמילאים, טנזניה',
+        url: 'https://www.facebook.com/groups/travelinginafrica/',
         members: '35,000+',
         description: 'ספארי, הטיול לאפריקה, מרוקו, מזרח אפריקה',
         type: 'אזור',
         active: true
       },
       {
-        name: 'ספארי עם ישראלים - מזרח אפריקה',
-        url: 'https://www.facebook.com/groups/israelissafari',
+        name: 'זנזיבר שלנו | טנזניה למטיילים',
+        url: 'https://www.facebook.com/groups/zanzibaryetu/',
         members: '22,000+',
         description: 'קניה, טנזניה, רואנדה - ספארי עם ישראלים',
         type: 'יעד',
@@ -1790,7 +1790,7 @@ var facebookGroups = [
       },
       {
         name: 'ישראלים במרוקו',
-        url: 'https://www.facebook.com/groups/israelismorocco',
+        url: 'https://www.facebook.com/groups/Mzungu/',
         members: '40,000+',
         description: 'מרקש, הסהרה, הסמטאות - מרוקו עם ישראלי פספורט',
         type: 'יעד',
@@ -1800,31 +1800,31 @@ var facebookGroups = [
     ]
   },
   {
-    region: 'ארה"ב וקנדה',
+    region: 'ארה"ב, ירדן ועוד',
     emoji: '🗽',
     color: 'from-blue-500 to-indigo-600',
     groups: [
       {
-        name: 'ישראלים בארה"ב',
-        url: 'https://www.facebook.com/groups/israelisusa',
+        name: 'ישראלים בארצות הברית',
+        url: 'https://www.facebook.com/groups/36927955925/',
         members: '85,000+',
         description: 'ניו יורק, לוס אנג\'לס, וגאס - כל ארה"ב',
         type: 'אזור',
         active: true
       },
       {
-        name: 'National Parks Israel Community',
-        url: 'https://www.facebook.com/groups/nationalparksisrael',
+        name: 'ישראלים בניו יורק - הקבוצה הרשמית',
+        url: 'https://www.facebook.com/groups/463331913772329/',
         members: '18,000+',
-        description: 'הפארקים הלאומיים בארה"ב - Grand Canyon, Zion, Yosemite',
+        description: 'ניו יורק, מנהטן, ברוקלין - הישראלים בעיר שלא ישנה',
         type: 'נושא',
         active: true
       },
       {
-        name: 'ישראלים בקנדה',
-        url: 'https://www.facebook.com/groups/israeliscanada',
+        name: 'ירדן למטיילים',
+        url: 'https://www.facebook.com/groups/1203715046433813/',
         members: '45,000+',
-        description: 'טורנטו, ונקובר, מונטריאול - עבודה וטיול',
+        description: 'פטרה, וואדי ראם, עקבה - ירדן הקרובה והמדהימה',
         type: 'יעד',
         active: true
       }
