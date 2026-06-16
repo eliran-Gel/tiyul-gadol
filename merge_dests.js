@@ -19,37 +19,6 @@
   DESTINATIONS     = destinations;
   DESTINATION_LIST = destinationList;
 
-  // נורמליזציה של flights (מספר בודד / אובייקט {low,mid,high})
-  function normFlights(f) {
-    if (f && typeof f === 'object') return f.mid || f.low || 3000;
-    return f || 3000;
-  }
-
-  // מיזוג נתוני תקציב
-  function mergeBudget(tempBudget) {
-    if (typeof tempBudget === 'undefined') return;
-    Object.keys(tempBudget).forEach(function(k) {
-      var dest = destinations[k];
-      var b = tempBudget[k];
-      BUDGET_DATA[k] = {
-        name:           dest ? dest.name  : k,
-        emoji:          dest ? dest.emoji : '',
-        accommodation:  b.accommodation,
-        food:           b.food,
-        transport:      b.transport,
-        activities:     b.activities,
-        flights:        normFlights(b.flights),
-        visa:           b.visa || 0,
-        insurancePer30: b.insurancePer30 || 350,
-        note:           b.note || ''
-      };
-    });
-  }
-
-  if (typeof tempBudget1 !== 'undefined') mergeBudget(tempBudget1);
-  if (typeof tempBudget2 !== 'undefined') mergeBudget(tempBudget2);
-  if (typeof tempBudget3 !== 'undefined') mergeBudget(tempBudget3);
-
   // הוספת אזור "מרכז אמריקה" לרשימת האזורים
   if (typeof regions !== 'undefined') {
     if (!regions.some(function(r) { return r.id === 'centralamerica'; })) {
