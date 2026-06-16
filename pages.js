@@ -1798,14 +1798,15 @@ var BudgetCalculator = function() {
     { label: 'טיסות הלוך-חזור', amount: d.flights || 0, icon: '✈️', color: '#3b82f6' },
     { label: 'ביטוח נסיעות', amount: Math.round(insurance), icon: '🛡️', color: '#ef4444' },
     { label: 'ויזה', amount: d.visa || 0, icon: '🛂', color: '#8b5cf6' },
-    { label: 'לינה (' + duration + ' לילות)', amount: accommodation, icon: '🏨', color: '#f59e0b' },
+    { label: 'לינה (' + duration + ' ימים/לילות)', amount: accommodation, icon: '🏨', color: '#f59e0b' },
     { label: 'אוכל (' + duration + ' ימים)', amount: food, icon: '🍜', color: '#10b981' },
     { label: 'תחבורה', amount: transport, icon: '🚌', color: '#14b8a6' },
     { label: 'פעילויות ובידור', amount: activities, icon: '🎯', color: '#f97316' },
   ];
 
-  var budgetLevel = total < 20000 ? { label: 'תקציב נמוך', color: '#10b981', emoji: '💚' }
-    : total < 40000 ? { label: 'תקציב ממוצע', color: '#f59e0b', emoji: '💛' }
+  var perDay = total > 0 ? Math.round(total / duration) : 0;
+  var budgetLevel = perDay < 450 ? { label: 'תקציב נמוך', color: '#10b981', emoji: '💚' }
+    : perDay < 850 ? { label: 'תקציב ממוצע', color: '#f59e0b', emoji: '💛' }
     : { label: 'תקציב גבוה', color: '#ef4444', emoji: '❤️' };
 
   return React.createElement('div', { dir: 'rtl', style: { direction: 'rtl', minHeight: '100vh', background: '#0a0a0f', color: 'white', padding: '80px 16px 80px' } },
@@ -1846,7 +1847,7 @@ var BudgetCalculator = function() {
           ),
           React.createElement('input', {
             type: 'range',
-            min: '30', max: '365', step: '15',
+            min: '30', max: '365', step: '5',
             value: duration,
             onChange: function(e) { setDuration(Number(e.target.value)); },
             style: { width: '100%', accentColor: '#f59e0b' }
@@ -1901,7 +1902,7 @@ var BudgetCalculator = function() {
           style: { background: budgetLevel.color + '22', color: budgetLevel.color, border: '1px solid ' + budgetLevel.color + '44', borderRadius: '50px', padding: '6px 16px', fontWeight: '800', fontSize: '0.9rem' }
         }, budgetLevel.emoji + ' ' + budgetLevel.label),
         d.note && React.createElement('p', { style: { color: '#9ca3af', fontSize: '0.85rem', marginTop: '12px', fontStyle: 'italic' } }, d.note),
-        React.createElement('p', { style: { color: '#6b7280', fontSize: '0.8rem', marginTop: '6px' } }, '~ ₪' + Math.round(total / duration) + '/יום ממוצע')
+        React.createElement('p', { style: { color: '#6b7280', fontSize: '0.8rem', marginTop: '6px' } }, '~ ₪' + perDay + '/יום ממוצע')
       ),
 
       // Breakdown bars
