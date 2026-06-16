@@ -1754,6 +1754,15 @@ var BudgetCalculator = function() {
   var [dest, setDest] = useState(destKeys[0] || 'thailand');
   var [duration, setDuration] = useState(90);
   var [style, setStyle] = useState('mid');
+  var [included, setIncluded] = useState({ flights:true, insurance:true, visa:true, accommodation:true, food:true, transport:true, activities:true });
+
+  function toggleItem(id) {
+    setIncluded(function(prev) {
+      var next = Object.assign({}, prev);
+      next[id] = !next[id];
+      return next;
+    });
+  }
 
   var travelStyles = [
     { id: 'low', label: '🎒 תקציבן', desc: 'הוסטלים, אוכל רחוב, Night Bus' },
@@ -1772,23 +1781,25 @@ var BudgetCalculator = function() {
 
   var d = budgetData[dest] || {};
   var months = duration / 30;
-  var accommodation = ((d.accommodation && d.accommodation[style]) || 0) * duration;
-  var food = ((d.food && d.food[style]) || 0) * duration;
-  var transport = ((d.transport && d.transport[style]) || 0) * duration;
-  var activities = ((d.activities && d.activities[style]) || 0) * duration;
-  var insurance = (d.insurancePer30 || 0) * months;
-  var total = accommodation + food + transport + activities + insurance + (d.flights || 0) + (d.visa || 0);
+  var amtAccommodation = ((d.accommodation && d.accommodation[style]) || 0) * duration;
+  var amtFood          = ((d.food && d.food[style]) || 0) * duration;
+  var amtTransport     = ((d.transport && d.transport[style]) || 0) * duration;
+  var amtActivities    = ((d.activities && d.activities[style]) || 0) * duration;
+  var amtInsurance     = Math.round((d.insurancePer30 || 0) * months);
+  var amtFlights       = d.flights || 0;
+  var amtVisa          = d.visa || 0;
 
   var breakdown = [
-    { label: 'טיסות הלוך-חזור', amount: d.flights || 0, icon: '✈️', color: '#3b82f6' },
-    { label: 'ביטוח נסיעות', amount: Math.round(insurance), icon: '🛡️', color: '#ef4444' },
-    { label: 'ויזה', amount: d.visa || 0, icon: '🛂', color: '#8b5cf6' },
-    { label: 'לינה (' + duration + ' ימים/לילות)', amount: accommodation, icon: '🏨', color: '#f59e0b' },
-    { label: 'אוכל (' + duration + ' ימים)', amount: food, icon: '🍜', color: '#10b981' },
-    { label: 'תחבורה', amount: transport, icon: '🚌', color: '#14b8a6' },
-    { label: 'פעילויות ובידור', amount: activities, icon: '🎯', color: '#f97316' },
+    { id: 'flights',       label: 'טיסות הלוך-חזור',             amount: amtFlights,       icon: '✈️', color: '#3b82f6' },
+    { id: 'insurance',     label: 'ביטוח נסיעות',                amount: amtInsurance,     icon: '🛡️', color: '#ef4444' },
+    { id: 'visa',          label: 'ויזה',                        amount: amtVisa,          icon: '🛂', color: '#8b5cf6' },
+    { id: 'accommodation', label: 'לינה (' + duration + ' לילות)', amount: amtAccommodation, icon: '🏨', color: '#f59e0b' },
+    { id: 'food',          label: 'אוכל (' + duration + ' ימים)',  amount: amtFood,          icon: '🍜', color: '#10b981' },
+    { id: 'transport',     label: 'תחבורה',                      amount: amtTransport,     icon: '🚌', color: '#14b8a6' },
+    { id: 'activities',    label: 'פעילויות ובידור',              amount: amtActivities,    icon: '🎯', color: '#f97316' },
   ];
 
+  var total = breakdown.reduce(function(sum, item) { return sum + (included[item.id] ? item.amount : 0); }, 0);
   var perDay = total > 0 ? Math.round(total / duration) : 0;
   var budgetLevel = perDay < 450 ? { label: 'תקציב נמוך', color: '#10b981', emoji: '💚' }
     : perDay < 850 ? { label: 'תקציב ממוצע', color: '#f59e0b', emoji: '💛' }
@@ -1800,7 +1811,18 @@ var BudgetCalculator = function() {
       React.createElement('h1', { style: { fontSize: '2.5rem', fontWeight: '900', textAlign: 'center', marginBottom: '8px' } },
         React.createElement('span', { style: { background: 'linear-gradient(135deg, #10b981, #f59e0b)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' } }, '💰 מחשבון תקציב')
       ),
-      React.createElement('p', { style: { color: '#9ca3af', textAlign: 'center', marginBottom: '32px' } }, 'כמה עולה הטיול שלך באמת?'),
+      React.createElement('p', { style: { color: '#9ca3af', textAlign: 'center', marginBottom: '16px' } }, 'כמה עולה הטיול שלך באמת?'),
+
+      // Disclaimer
+      React.createElement('div', {
+        style: { background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.25)', borderRadius: '12px', padding: '12px 16px', marginBottom: '28px', display: 'flex', gap: '10px', alignItems: 'flex-start' }
+      },
+        React.createElement('span', { style: { fontSize: '1.1rem', flexShrink: 0 } }, '⚠️'),
+        React.createElement('p', { style: { color: '#d1d5db', fontSize: '0.82rem', lineHeight: 1.55, margin: 0 } },
+          React.createElement('strong', { style: { color: '#f59e0b' } }, 'הערכה בלבד — '),
+          'המחירים הם ממוצעים גסים ומשתנים מאד בין אדם לאדם, עונה, סגנון נסיעה ומזל. השתמש בהם כנקודת התחלה לתכנון, לא כמספרים מדויקים.'
+        )
+      ),
 
       // Inputs card
       React.createElement('div', { style: { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '24px', marginBottom: '24px' } },
@@ -1892,20 +1914,46 @@ var BudgetCalculator = function() {
 
       // Breakdown bars
       React.createElement('div', { style: { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '24px', marginBottom: '24px' } },
-        React.createElement('h3', { style: { fontWeight: '800', fontSize: '1.1rem', marginBottom: '16px' } }, '📊 פירוט הוצאות'),
-        React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '12px' } },
-          breakdown.map(function(item, i) {
-            var pct = total > 0 ? (item.amount / total) * 100 : 0;
-            return React.createElement('div', { key: i },
-              React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px', fontSize: '0.88rem' } },
-                React.createElement('span', { style: { color: 'white', fontWeight: '600' } }, item.icon + ' ' + item.label),
-                React.createElement('span', { style: { color: item.color, fontWeight: '800' } },
+        React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' } },
+          React.createElement('h3', { style: { fontWeight: '800', fontSize: '1.1rem', margin: 0 } }, '📊 פירוט הוצאות'),
+          React.createElement('span', { style: { color: '#6b7280', fontSize: '0.75rem' } }, 'לחץ כדי להוציא/להכניס')
+        ),
+        React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '10px' } },
+          breakdown.map(function(item) {
+            var on = included[item.id];
+            var pct = total > 0 && on ? (item.amount / total) * 100 : 0;
+            return React.createElement('div', {
+              key: item.id,
+              style: { opacity: on ? 1 : 0.4, transition: 'opacity 0.2s' }
+            },
+              React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: on ? '6px' : 0, fontSize: '0.88rem' } },
+                // Right side: toggle + label
+                React.createElement('button', {
+                  onClick: function() { toggleItem(item.id); },
+                  style: {
+                    display: 'flex', alignItems: 'center', gap: '8px', background: 'none',
+                    border: 'none', cursor: 'pointer', padding: 0, textAlign: 'right',
+                  }
+                },
+                  React.createElement('div', {
+                    style: {
+                      width: '18px', height: '18px', borderRadius: '5px', flexShrink: 0,
+                      background: on ? item.color : 'rgba(255,255,255,0.15)',
+                      border: '2px solid ' + (on ? item.color : 'rgba(255,255,255,0.2)'),
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: '11px', color: 'white', transition: 'all 0.2s',
+                    }
+                  }, on ? '✓' : ''),
+                  React.createElement('span', { style: { color: on ? 'white' : '#6b7280', fontWeight: '600' } }, item.icon + ' ' + item.label)
+                ),
+                // Left side: amount
+                React.createElement('span', { style: { color: on ? item.color : '#4b5563', fontWeight: '800', textDecoration: on ? 'none' : 'line-through', fontSize: '0.88rem' } },
                   '₪' + item.amount.toLocaleString(),
-                  React.createElement('span', { style: { color: '#6b7280', fontWeight: '400', fontSize: '0.75rem', marginRight: '4px' } }, ' (' + Math.round(pct) + '%)')
+                  on && total > 0 && React.createElement('span', { style: { color: '#6b7280', fontWeight: '400', fontSize: '0.75rem', marginRight: '4px' } }, ' (' + Math.round(pct) + '%)')
                 )
               ),
-              React.createElement('div', { style: { background: 'rgba(255,255,255,0.08)', borderRadius: '50px', height: '8px', overflow: 'hidden' } },
-                React.createElement('div', { style: { background: item.color, height: '100%', width: pct + '%', borderRadius: '50px', transition: 'width 0.6s ease' } })
+              on && React.createElement('div', { style: { background: 'rgba(255,255,255,0.08)', borderRadius: '50px', height: '7px', overflow: 'hidden' } },
+                React.createElement('div', { style: { background: item.color, height: '100%', width: pct + '%', borderRadius: '50px', transition: 'width 0.5s ease' } })
               )
             );
           })
