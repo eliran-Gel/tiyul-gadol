@@ -9,7 +9,6 @@
     if (!cat || !cat.items || !cat.items[i]) return;
     var urls = ids.map(function(id) { return U + id + S; });
     cat.items[i].images = urls;
-    if (urls[0]) cat.items[i].image = urls[0];
   }
 
   // ──────────── THAILAND ────────────
