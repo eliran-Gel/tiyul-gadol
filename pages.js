@@ -1801,8 +1801,8 @@ var BudgetCalculator = function() {
 
   var total = breakdown.reduce(function(sum, item) { return sum + (included[item.id] ? item.amount : 0); }, 0);
   var perDay = total > 0 ? Math.round(total / duration) : 0;
-  var budgetLevel = perDay < 450 ? { label: 'תקציב נמוך', color: '#10b981', emoji: '💚' }
-    : perDay < 850 ? { label: 'תקציב ממוצע', color: '#f59e0b', emoji: '💛' }
+  var budgetLevel = perDay < 300 ? { label: 'תקציב נמוך', color: '#10b981', emoji: '💚' }
+    : perDay < 650 ? { label: 'תקציב ממוצע', color: '#f59e0b', emoji: '💛' }
     : { label: 'תקציב גבוה', color: '#ef4444', emoji: '❤️' };
 
   return React.createElement('div', { dir: 'rtl', style: { direction: 'rtl', minHeight: '100vh', background: '#0a0a0f', color: 'white', padding: '80px 16px 80px' } },
